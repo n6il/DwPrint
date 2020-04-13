@@ -1,0 +1,57 @@
+file out.dmp 0
+unused 0000-a2be
+code a2bf-a2c1
+unused a2c2-a309
+code a30a-a30c
+unused a30d-fa0b
+code fa0c-fa66
+data fa67-fa6b
+code fa6c-fa7d
+data FA7E-fa81
+unused fa82-ffff
+*
+label 006f DevNum
+label 009b LptWid
+label 009c LptPos
+*
+label 8c37 PATCH22A
+comment a2bf Patch basic - replace Bit-Banger print with DwPrnt
+label a2bf DwpPch1
+*
+comment a30a Patch basic - Add flush check to screen print rtn
+label A30A DwpPch2
+*
+label a549 BrkChk
+label a910 CLS
+label d941 DwWrite
+*
+comment FA0C DwPrnt - Entry from basic, char is in A
+label FA0C DwPrnt
+const fa14-fa15
+const fa29-fa2a
+label FA2C DoPrnt
+label FA40 RtnBas1
+*
+comment FA42
+label FA42 Flush
+const fa45-fa46
+comment FA58 
+comment FA58 FlshCk - Flush Check - Send OP_PRINTFLUSH if necessary
+label FA58 FlshCk
+label FA62 RtnBas2
+*
+comment FA67
+comment FA67 Data/Vars
+comment FA67
+comment FA67 Flag to track when to send OP_FLUSH
+label FA67 FlshFlg
+comment FA68 Data buffer
+label FA68 Buf0
+label FA69 Buf1
+label FA6A Buf2
+label FA6B Buf3
+*
+comment fa6c
+comment fa6c Unused Code
+comment fa6e
+comment fa7e Unused Data/Vars
